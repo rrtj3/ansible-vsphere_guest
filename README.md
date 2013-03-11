@@ -14,7 +14,7 @@ Here is an example of defining the guest:
         - vsphere_guest: > 
             vcenter_hostname='vcenter.host.edu' user='username' password='password' 
             datacenter="Dev_Datacenter" datastore="hit04_sata_datastore04" esxi_hostname="esx15.mgt.host.edu" 
-            vm_name="romeotestvm" vm_memory=2048 vm_cpu=2 vm_notes="woohoo" guestosid="rhel6_64Guest"
+            vm_name="romeotestvm" vm_memory_mb=2048 vm_num_cpus=2 vm_notes="woohoo" guestosid="rhel6_64Guest"
             power_on=yes
             args:
                 vm_cdrom:

@@ -393,8 +393,8 @@ def main():
             esxi_hostname        = dict(required=True, type='str'),
             power_on             = dict(required=False, default='no', type='bool'),
             vm_name              = dict(required=True, type='str'),
-            vm_memory            = dict(required=False, default=1024),
-            vm_cpu               = dict(required=False, default=1),
+            vm_memory_mb         = dict(required=False, default=1024),
+            vm_num_cpus          = dict(required=False, default=1),
             vm_scsi              = dict(required=False, default="paravirtual", type='str'),
             vm_disk              = dict(required=False, default=None, type='dict'),
             vm_nic               = dict(required=False, default=None, type='dict'),
@@ -420,8 +420,8 @@ def main():
     esxi_hostname = module.params['esxi_hostname']
     power_on = module.params['power_on']
     vm_name = module.params['vm_name']
-    vm_memory = int(module.params['vm_memory'])
-    vm_cpu = int(module.params['vm_cpu'])
+    vm_memory_mb = int(module.params['vm_memory_mb'])
+    vm_num_cpus = int(module.params['vm_num_cpus'])
     vm_scsi = module.params['vm_scsi']
     vm_disk = module.params['vm_disk']
     vm_nic = module.params['vm_nic']
@@ -537,8 +537,8 @@ def main():
     config.set_element_name(vm_name)
     if vm_notes != None:
         config.set_element_annotation(vm_notes)
-    config.set_element_memoryMB(vm_memory)
-    config.set_element_numCPUs(vm_cpu)
+    config.set_element_memoryMB(vm_memory_mb)
+    config.set_element_numCPUs(vm_num_cpus)
     config.set_element_guestId(guestosid)
     devices = []
     
